@@ -18,6 +18,10 @@ interface Composable : Component {
      */
     fun addChild(child: Component)
 
+    fun insertChild(index: Int, child: Component)
+
+    fun removeChild(index: Int)
+
     /**
      * Initialize this composable composition.
      */

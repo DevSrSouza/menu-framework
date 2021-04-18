@@ -26,7 +26,7 @@ object EmptyMeasurableGroup : MeasurableGroup {
     ): MeasureScope.MeasureResult = layout(constraints.minWidth, constraints.minHeight)
 }
 
-private fun boxMeasurableGroup(
+internal fun boxMeasurableGroup(
     alignment: Alignment,
 ): MeasurableGroup = object : MeasurableGroup {
     override fun MeasureScope.measure(

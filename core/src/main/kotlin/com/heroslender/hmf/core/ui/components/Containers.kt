@@ -126,7 +126,7 @@ fun Placeable.crossAxisSize(orientation: Orientation): Int =
 val Placeable.hasBoundingBox: Boolean
     get() = width > 0 && height > 0
 
-private fun orientedCopmonentMeasurableGroup(
+internal fun orientedCopmonentMeasurableGroup(
     orientation: Orientation,
     mainAxisArrangment: Arrangement,
     crossAxisAlignment: Alignment.Directional,

@@ -10,7 +10,7 @@ class ComposableNode(
     parent: Composable?,
     modifier: Modifier = Modifier,
     renderContext: RenderContext = parent!!.renderContext,
-    private val content: Composable.() -> Unit,
+    private val content: Composable.() -> Unit = {},
 ) : AbstractNode(parent, modifier, renderContext), Composable {
 
     override var childOffsetX: Int = 0
@@ -27,6 +27,14 @@ class ComposableNode(
 
     override fun addChild(child: Component) {
         _children.add(child)
+    }
+
+    override fun insertChild(index: Int, child: Component) {
+        _children.add(index, child)
+    }
+
+    override fun removeChild(index: Int) {
+        _children.removeAt(index)
     }
 
     override fun draw(canvas: Canvas): Boolean {
@@ -68,5 +76,9 @@ class ComposableNode(
         childOffsetY = childOffset(0) { it.y }
 
         super.onNodePlaced()
+    }
+
+    override fun toString(): String {
+        return "\$NODE: " + children.toString()
     }
 }
